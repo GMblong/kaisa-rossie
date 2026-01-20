@@ -1,0 +1,7 @@
+{
+  "name": "Kaisa Rossie Travel Platform",
+  "description": "A premium, minimalistic travel management system for Umrah, Hajj, domestic tours, and bus rentals, featuring modern Islamic-inspired design and AI-powered assistance.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

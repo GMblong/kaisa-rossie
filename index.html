@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Kaisa Rossie | Boutique Travel Atelier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              emerald: {
+                950: '#022c22',
+              },
+              gold: {
+                400: '#fbbf24',
+                500: '#d4af37',
+                600: '#b8962e',
+              },
+              ivory: '#fdfbf7',
+            },
+            animation: {
+              'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <style>
+      html { scroll-behavior: smooth; }
+      * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: #fdfbf7;
+        color: #022c22;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+
+      .grain::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+        opacity: 0.02; /* Kurangi opacity agar lebih clean */
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      .islamic-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 L61.23 38.77 L100 50 L61.23 61.23 L50 100 L38.77 61.23 L0 50 L38.77 38.77 Z' fill='%23d4af37' fill-opacity='0.08'/%3E%3C/svg%3E");
+      }
+
+      .container-luxe {
+        width: 100%;
+        max-width: 1400px; /* Lebar yang lebih terkontrol agar tidak terlalu 'lebar' */
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .reveal-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal-up.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      ::selection { background: #d4af37; color: white; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="grain">
+    <div id="root"></div>
+    <script>
+      const initObserver = () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('active');
+          });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+      };
+      window.addEventListener('load', initObserver);
+      const observer = new MutationObserver(initObserver);
+      observer.observe(document.body, { childList: true, subtree: true });
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
