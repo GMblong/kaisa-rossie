@@ -6,7 +6,9 @@ export enum UserRole {
   FINANCE = 'FINANCE',
   PO_BUS = 'PO_BUS',
   SUPPORT_STAFF = 'SUPPORT_STAFF',
-  CUSTOMER = 'CUSTOMER'
+  CUSTOMER = 'CUSTOMER',
+  SALES_AGENT = 'SALES_AGENT',
+  TICKETING = 'TICKETING'
 }
 
 export type PackageCategory = 'UMRAH' | 'HAJJ' | 'TOUR' | 'BUS';

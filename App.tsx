@@ -45,7 +45,7 @@ const App: React.FC = () => {
     const mockUser: User = {
       id: 'u-123',
       name: selectedRole === UserRole.SUPER_ADMIN ? 'Kaisa Admin' : 'Abdullah Ahmad',
-      email: selectedRole === UserRole.SUPER_ADMIN ? 'admin@kaisarossie.com' : 'jemaah@email.com',
+      email: selectedRole === UserRole.SUPER_ADMIN ? 'admin@kaisarossie.com' : 'customer@kaisarossie.com',
       role: selectedRole,
     };
     setUser(mockUser);
