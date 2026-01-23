@@ -63,11 +63,11 @@ const App: React.FC = () => {
         return <Home onNavigate={navigateTo} />;
       case 'detail':
         const pkg = PACKAGES.find(p => p.id === selectedPackageId);
-        return pkg ? <PackageDetail item={pkg} onBack={() => navigateTo('home')} onBook={handleBook} /> : <Home onNavigate={navigateTo} />;
+        return pkg ? <PackageDetail item={pkg} onBack={() => navigateTo(user ? 'dashboard' : 'home')} onBook={handleBook} /> : <Home onNavigate={navigateTo} />;
       case 'assistant':
         return <AIAssistant />;
       case 'dashboard':
-        return user ? <Dashboard user={user} /> : <Auth onLogin={handleLogin} onNavigate={navigateTo} />;
+        return user ? <Dashboard user={user} onSelectPackage={selectPackage} /> : <Auth onLogin={handleLogin} onNavigate={navigateTo} />;
       case 'auth':
         return <Auth onLogin={handleLogin} onNavigate={navigateTo} />;
       case 'booking':

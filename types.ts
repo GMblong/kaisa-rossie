@@ -36,4 +36,31 @@ export interface User {
   email: string;
   role: UserRole;
   avatar?: string;
+  familyId?: string; // ID untuk mengelompokkan akun keluarga
+}
+
+export interface Participant {
+  id: string;
+  name: string;
+  type: 'DEWASA' | 'ANAK';
+  isAccountHolder: boolean;
+  linkedEmail?: string; // Jika jamaah ini sudah punya akun sendiri
+  syncStatus: 'LINKED' | 'UNLINKED' | 'PENDING';
+}
+
+export interface CustomerDocument {
+  id: string;
+  name: string;
+  type: 'PASSPORT' | 'VACCINE' | 'ID_CARD' | 'FAMILY_CARD';
+  status: 'MISSING' | 'PENDING' | 'VERIFIED' | 'REJECTED';
+  uploadDate?: string;
+  fileUrl?: string;
+}
+
+export interface Transaction {
+  id: string;
+  amount: number;
+  method: string;
+  date: string;
+  status: 'COMPLETED' | 'PENDING' | 'FAILED';
 }
